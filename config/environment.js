@@ -52,11 +52,5 @@ module.exports = function(environment) {
 }
   }
 
-  ENV.contentSecurityPolicy = {
-  // ... other stuff here
-  'connect-src': "'self' http://127.0.0.1:8090"
-  }
-
-
   return ENV;
 };
