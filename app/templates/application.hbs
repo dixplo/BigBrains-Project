@@ -1,9 +1,15 @@
 {{!-- The following component displays Ember's default welcome message. --}}
 <div class="ui container"><br>
-<div class="ui segment"><h1>Project BigBrain: Boards</h1></div>
+<div class="ui segment"><h1>Project BigBrain: Boards</h1>
+  <div class="ui three item menu"> <!-- MENU -->
+    <a href="/home" class="active item">Home</a>
+    <a href="/projects" class="item">Projects</a>
+    <a href="/developers" class="item">Developers</a>
+  </div>
+</div> <!-- DIV PRINCIPAL -->
+
+
+
 {{!-- Feel free to remove this! --}}
-<div class="ui segment"><h3>Developers List</h3>
-{{model.developer}}
-</div>
 {{outlet}}
 </div>

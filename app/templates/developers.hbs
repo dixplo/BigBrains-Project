@@ -1,1 +1,27 @@
+<div class="ui segment"><h3>Developers List</h3>
+
+  <div class="ui input">
+    <Input @value={{identity}} placeholder="Identity" class="ui input"/>
+    <Input @value={{name}} placeholder="Name"/>
+  </div>
+
+  <div {{action "addNew" identity name}} class="ui button">Add</div>
+
+<div style="display:none;" class="ui segment"> <!-- DIV DE TEST -->
+
+  <p>
+    {{identity}}
+    <br>
+    {{name}}
+  </p>
+</div> <!-- DIV DE TEST -->
+
+
+
+
+</div>
+
+
+{{model.developer}}
+{{developer}}
 {{outlet}}
