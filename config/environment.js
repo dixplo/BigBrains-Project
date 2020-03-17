@@ -48,7 +48,7 @@ module.exports = function(environment) {
     //Autorise la connexion de l'application ember au serveur restheart
     ENV.contentSecurityPolicy = {
   // ... other stuff here
-  'connect-src': "'self' http://127.0.0.1:8080"
+  'connect-src': "'self' http://127.0.0.1:8090"
 }
   }
 
