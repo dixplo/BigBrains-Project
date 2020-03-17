@@ -23,5 +23,4 @@ var Adapater=DS.RESTAdapter.extend({
     return this.get('host')+'/'+this.get('namespace')+'/'+modelName+'?filter='+JSON.stringify(query.filter);
   }
 });
-
 export default Adapater;

@@ -41,10 +41,15 @@ module.exports = function(environment) {
 
     ENV.APP.rootElement = '#ember-testing';
     ENV.APP.autoboot = false;
+
   }
 
   if (environment === 'production') {
-    // here you can enable a production-specific feature
+    //Autorise la connexion de l'application ember au serveur restheart
+    ENV.contentSecurityPolicy = {
+  // ... other stuff here
+  'connect-src': "'self' http://127.0.0.1:8080"
+}
   }
 
   ENV.contentSecurityPolicy = {
