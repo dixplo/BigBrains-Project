@@ -23,6 +23,8 @@ module.exports = function(environment) {
     }
   };
 
+
+
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
@@ -45,12 +47,11 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    //Autorise la connexion de l'application ember au serveur restheart
-    ENV.contentSecurityPolicy = {
-  // ... other stuff here
-  'connect-src': "'self' http://127.0.0.1:8090"
-}
   }
 
+  ENV.contentSecurityPolicy = {
+  // ... other stuff here
+  'connect-src': "'self' http://127.0.0.1:8080"
+};
   return ENV;
 };

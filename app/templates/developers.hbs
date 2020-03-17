@@ -1,1 +1,8 @@
 {{outlet}}
+<div class="ui red segment"><h3>Developers List</h3>
+  {{#each model as |developer|}}
+    <div class="ui red inverted segment">
+      {{developer.name}} {{developer.fname}}
+    </div>
+    {{/each}}
+</div>
