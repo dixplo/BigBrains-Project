@@ -1,3 +1,4 @@
+// Model developer
 import DS from 'ember-data';
 const { Model } = DS;
 
