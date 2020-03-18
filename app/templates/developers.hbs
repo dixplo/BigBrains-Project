@@ -1,10 +1,72 @@
-{{outlet}}
-<div class="ui red segment"><h3>Developers List</h3>
+<div class="ui segment"><h3>Add Developer</h3>
+
+<div class="ui form">
+  <div class="fields">
+    <div class="field">
+      <label>Pseudo</label>
+      <Input @value={{identity}} name="identity" placeholder="Identity" class="ui input"/>
+    </div>
+    <div class="field">
+      <label>Name</label>
+      <Input @value={{name}} name="name" placeholder="Name" class="ui input"/>
+    </div>
+    <div class="field">
+      <label>First Name</label>
+      <Input @value={{fname}} name="fname" placeholder="First Name" class="ui input"/>
+    </div>
+  </div>
+  <div class="ui error message"></div>
+  <div {{action "addNew" identity name fname}} class="ui submit button">Add</div>
+</div>
+</div>
+
+<div class="ui segment"><h3>Developers List</h3>
   {{#each model as |developer|}}
-    <div class="ui red inverted segment" id="devSegment">
-      {{developer.name}} {{developer.fname}} <div class="ui icon button" id="deleteDevButton">
+    <div class="ui green segment" id="devSegment">
+      {{developer.name}} {{developer.fname}} {{developer.identity}} <div class="ui icon button" id="deleteDevButton">
   <i class="delete icon"></i>
 </div>
     </div>
     {{/each}}
 </div>
+
+
+<script>
+$(document).ready(function(){
+                $('.ui.form')
+                    .form({
+                        fields: {
+                            name: {
+                                identifier: 'name',
+                                rules: [
+                                    {
+                                        type   : 'empty',
+                                        prompt : 'Please enter the developer name.'
+                                    }
+                                ]
+                            },
+                            fname: {
+                                identifier: 'fname',
+                                rules: [
+                                    {
+                                        type   : 'empty',
+                                        prompt : 'Please enter the developer first name.'
+                                    }
+                                ]
+                            },
+                            identity: {
+                                identifier: 'identity',
+                                rules: [
+                                    {
+                                        type   : 'empty',
+                                        prompt : 'Choose valid pseudo.'
+                                    }
+                                ]
+                            }
+                        }
+                    })
+                ;
+            });
+</script>
+
+{{outlet}}

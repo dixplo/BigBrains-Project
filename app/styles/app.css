@@ -1,9 +1,7 @@
 h1{
   text-align: center;
 }
-#deleteDevButton{
-  float: right;
-}
-#devSegment{
-  height: 20%;
+
+body{
+  background-color: #D0FFB7;
 }
