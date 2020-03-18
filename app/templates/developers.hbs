@@ -23,10 +23,12 @@
 <div class="ui segment"><h3>Developers List</h3>
   {{#each model as |developer|}}
     <div class="ui green segment" id="devSegment">
-      {{developer.name}} {{developer.fname}} {{developer.identity}} <div class="ui icon button" id="deleteDevButton">
-  <i class="delete icon"></i>
-</div>
-    </div>
+      {{developer.name}} {{developer.fname}} {{developer.identity}}
+        <div {{action "edit" identity name fname}} style="float:right;" class="ui button">Edit</div>
+        <div {{action "remove" developer}} style="float:right;" class="ui button">Remove</div>
+  </div>
+    
+
     {{/each}}
 </div>
 
