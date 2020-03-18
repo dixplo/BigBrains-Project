@@ -17,6 +17,10 @@ export default Route.extend({
         developer.save();
       }
 
+    },
+    remove(developer){
+      developer.deleteRecord();
+      developer.save();
     }
   }
 });

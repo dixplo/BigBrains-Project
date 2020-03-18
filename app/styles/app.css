@@ -10,10 +10,8 @@ body{
 
 }
 .ui.three.item.menu .active.item{
-    color: white;
-    background-color: #1A1F58;
-    border-color: #1A1F58;
+
 }
 .ui.three.item.menu .item{
-    color: red;
+    
 }

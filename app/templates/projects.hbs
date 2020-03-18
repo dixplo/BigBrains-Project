@@ -1,8 +1,21 @@
 <div class="ui segment"><h3>Projects List</h3>
+
+{{#each model as |project|}}
+
+<div class="ui horizontal segments">
+
+   <div class="ui green segment">
+     {{project.name}}
+   </div>
+
+   <div class="ui green segment">
+    {{project.descriptif}}
+   </div>
+
+ </div>
+
+   {{/each}}
+
 </div>
-
-
-{{model.project}}
-
 
 {{outlet}}
