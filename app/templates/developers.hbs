@@ -1,27 +1,100 @@
-<div class="ui segment"><h3>Developers List</h3>
+<div class="ui segment"><h3>Add Developer</h3>
 
-  <div class="ui input">
-    <Input @value={{identity}} placeholder="Identity"/>
-    <Input @value={{name}} placeholder="Name"/>
-    <Input @value={{fname}} placeholder="FirstName"/>
+<!--<div id="openForm" class="ui button">
+Add one
+</div>
+-->
+
+<div style="/*display:none;*/" class="ui form">
+  <div class="fields">
+    <div class="field">
+      <label>Pseudo</label>
+      <Input @value={{identity}} name="identity" placeholder="Identity" class="ui input"/>
+    </div>
+    <div class="field">
+      <label>Name</label>
+      <Input @value={{name}} name="name" placeholder="Name" class="ui input"/>
+    </div>
+    <div class="field">
+      <label>First Name</label>
+      <Input @value={{fname}} name="fname" placeholder="First Name" class="ui input"/>
+    </div>
   </div>
-
-  <div {{action "addNew" identity name fname}} class="ui button">Add</div>
-
+  <div class="ui error message"></div>
+  <div {{action "addNew" identity name fname}} id="closeForm" class="ui submit button">Add</div>
+</div> <!-- UI FORM -->
 </div>
 
-<div class="ui red segment"><h3>Developers List</h3>
+<div class="ui segment"><h3>Developers List</h3>
   {{#each model as |developer|}}
-    <div class="ui red inverted segment">
+    <div class="ui green segment" id="devSegment">
       {{developer.identity}}
       {{developer.name}}
       {{developer.fname}}
+        <div {{action "edit" identity name fname}} style="float:right;" class="ui button">Edit</div>
+        <div {{action "remove" developer}} style="float:right;" class="ui button">Remove</div>
 
-      <div {{action "remove" developer}} style="float:right;" class="ui button">Remove</div>
-      <div {{action "edit" identity name fname}} style="float:right;" class="ui button">Edit</div>
-    </div>
+        <br><br>
+  </div>
+
 
     {{/each}}
 </div>
+
+
+<script>
+$(document).ready(function(){
+                $('.ui.form')
+                    .form({
+                        fields: {
+                            name: {
+                                identifier: 'name',
+                                rules: [
+                                    {
+                                        type   : 'empty',
+                                        prompt : 'Please enter the developer name.'
+                                    }
+                                ]
+                            },
+                            fname: {
+                                identifier: 'fname',
+                                rules: [
+                                    {
+                                        type   : 'empty',
+                                        prompt : 'Please enter the developer first name.'
+                                    }
+                                ]
+                            },
+                            identity: {
+                                identifier: 'identity',
+                                rules: [
+                                    {
+                                        type   : 'empty',
+                                        prompt : 'Choose valid pseudo.'
+                                    }
+                                ]
+                            }
+                        }
+                    })
+                ;
+
+
+/* FAIS APPARAITRE LE FORMULAIRE LORS DU CLIQUE SUR LE BOUTON */
+/*
+                $('#openForm').on('click',function(){
+                  $('.ui.form').css('display', 'block');
+                  $('#openForm').css('display', 'none');
+
+                }); // on click
+
+                $('#closeForm').on('click',function(){
+                  $('.ui.form').css('display', 'none');
+                  $('#openForm').css('display', 'inline');
+*/
+
+                }); // on click
+
+            }); /* FUNCTION */
+</script>
 
 {{outlet}}

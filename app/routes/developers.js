@@ -8,10 +8,12 @@ export default Route.extend({
       },
   actions:{
     addNew(identity, name, fname){
-      if (!identity || !name || !fname) {
-        console.log("bien");
+      if(!identity || !name || !fname){
+
+      }
+      else{
         let store=this.get('store');
-        let developer = this.get('store').createRecord('developer',{identity: identity, name: name, fname: fname}); // developer désigne le model
+        let developer = this.get('store').createRecord('developer',{identity: identity, name: name,fname:fname}); // developer dÃ©signe le model
         developer.save();
       }
     },

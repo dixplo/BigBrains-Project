@@ -3,5 +3,17 @@ h1{
 }
 
 body{
-  background-color: #fb4b4e;
+  background-color: #D0FFB7;
+}
+
+.ui.three.item.menu{
+
+}
+.ui.three.item.menu .active.item{
+    color: white;
+    background-color: #1A1F58;
+    border-color: #1A1F58;
+}
+.ui.three.item.menu .item{
+/*    color: red;*/
 }
