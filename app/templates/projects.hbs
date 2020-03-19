@@ -4,19 +4,19 @@
     <div class="fields">
       <div class="field">
         <label>Name</label>
-        <Input @value={{name}} name="identity" placeholder="Name" class="ui input"/>
+        <Input @value={{name}} name="name" placeholder="Name" class="ui input"/>
       </div>
       <div class="field">
         <label>Descriptif</label>
-        <Input @value={{descriptif}} name="name" placeholder="Descriptif" class="ui input"/>
+        <Input @value={{descriptif}} name="description" placeholder="Description" class="ui input"/>
       </div>
       <div class="field">
         <label>Start date</label>
-        <Input @value={{startDate}} name="fname" placeholder="Y-M-D" class="ui input"/>
+        <Input @value={{startDate}} type="date" name="dateT" placeholder="Y-M-D" class="ui input"/>
       </div>
       <div class="field">
         <label>Due date</label>
-        <Input @value={{dueDate}} name="fname" placeholder="Y-M-D" class="ui input"/>
+        <Input @value={{dueDate}} type="date" name="dateD" placeholder="Y-M-D" class="ui input"/>
       </div>
     </div>
     <div class="ui error message"></div>
@@ -24,7 +24,7 @@
   </div> <!-- UI FORM -->
 
 </div>
-
+<div class="ui segment">
 {{#each model as |project|}}
 
 <table class="ui definition green table">
@@ -55,20 +55,19 @@
    </tr>
  </tbody>
 </table>
-
-<!-- Valider la suppression -->
-<div class="ui modal delete">
-  <div class="header">Do you want delete this project ?</div>
-  <div class="content">
-    <div class="description">
-      <div {{action "remove" project}} class="ui green button">Yes</div>
-      <div class="ui red button">No</div>
-      <!--Button oui => {{action "remove" project}} --> <!-- Button annuler -->
-    </div>
-  </div>
-</div>
    {{/each}}
-
+ </div>
+ <!-- Valider la suppression -->
+ <div class="ui modal delete">
+   <div class="header">Do you want delete this project ?</div>
+   <div class="content">
+     <div class="description">
+       <div {{action "remove" project}} class="ui green button">Yes</div>
+       <div class="ui red button">No</div>
+       <!--Button oui => {{action "remove" project}} --> <!-- Button annuler -->
+     </div>
+   </div>
+ </div>
 <!-- Afficher les storys -->
 <div class="ui modal story">
   <div class="header">Story</div>
@@ -89,5 +88,51 @@ $('#btnModalDelete').click(function() {
 $(".ui.modal.story").modal({
 		closable: true
 	});
+
+$(document).ready(function(){
+                  $('.ui.form')
+                      .form({
+                          fields: {
+                              name: {
+                                  identifier: 'name',
+                                  rules: [
+                                      {
+                                          type   : 'empty',
+                                          prompt : 'Please enter the project name.'
+                                      }
+                                  ]
+                              },
+                              description: {
+                                  identifier: 'description',
+                                  rules: [
+                                      {
+                                          type   : 'empty',
+                                          prompt : 'Please enter the description of project.'
+                                      }
+                                  ]
+                              },
+                              dateT: {
+                                  identifier: 'dateT',
+                                  rules: [
+                                      {
+                                          type   : 'empty',
+                                          prompt : 'Please chose a start date'
+                                      }
+                                  ]
+                              },
+                              dateD: {
+                                  identifier: 'dateD',
+                                  rules: [
+                                      {
+                                          type   : 'empty',
+                                          prompt : 'Please chose a due date'
+                                      }
+                                  ]
+                              }
+                          }
+                      })
+                  ;
+              });
+
 </script>
 {{outlet}}
