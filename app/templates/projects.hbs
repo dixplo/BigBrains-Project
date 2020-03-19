@@ -1,5 +1,30 @@
 <div class="ui segment"><h3>Projects List</h3>
 
+  <div class="ui form">
+    <div class="fields">
+      <div class="field">
+        <label>Name</label>
+        <Input @value={{name}} name="identity" placeholder="Name" class="ui input"/>
+      </div>
+      <div class="field">
+        <label>Descriptif</label>
+        <Input @value={{descriptif}} name="name" placeholder="Descriptif" class="ui input"/>
+      </div>
+      <div class="field">
+        <label>Start date</label>
+        <Input @value={{startDate}} name="fname" placeholder="Y-M-D" class="ui input"/>
+      </div>
+      <div class="field">
+        <label>Due date</label>
+        <Input @value={{dueDate}} name="fname" placeholder="Y-M-D" class="ui input"/>
+      </div>
+    </div>
+    <div class="ui error message"></div>
+    <div {{action "addNew" name descriptif startDate dueDate}} id="closeForm" class="ui submit button">Add</div>
+  </div> <!-- UI FORM -->
+
+</div>
+
 {{#each model as |project|}}
 
 <table class="ui definition green table">
@@ -26,6 +51,5 @@
 
    {{/each}}
 
-</div>
 
 {{outlet}}
