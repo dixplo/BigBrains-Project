@@ -23,17 +23,28 @@
    <tr>
      <td>Actions</td>
      <td>
-       <div class="ui button">Delete</div>
+       <div {{action "remove" project}} class="ui button" id="btnModalDelete">Delete</div>
        <div class="ui button">Edit</div>
        <div class="ui button">Developers</div>
      </td>
    </tr>
  </tbody>
 </table>
-
-
+<div class="ui modal">
+  <div class="header">Do you want delete this project ?</div>
+  <div class="content">
+    <div class="description">
+      <!--Button oui => action "remove" --> <!-- Button annuler -->
+    </div>
+  </div>
+</div>
    {{/each}}
 
-</div>
 
+</div>
+<script>
+$('#btnModalDelete').click(function() {
+  $('.ui.modal').modal('show');
+})
+</script>
 {{outlet}}
