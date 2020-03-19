@@ -1,15 +1,12 @@
-<div class="ui segment"><h3>Add Developer</h3>
+<div class="ui segment">
 
-<!--<div id="openForm" class="ui button">
-Add one
-</div>
--->
+  <h3>Add Developer</h3>
 
-<div style="/*display:none;*/" class="ui form">
+<div class="ui form">
   <div class="fields">
     <div class="field">
       <label>Pseudo</label>
-      <Input @value={{identity}} name="identity" placeholder="Identity" class="ui input"/>
+      <Input @value={{identity}} name="identity" placeholder="Pseudo" class="ui input"/>
     </div>
     <div class="field">
       <label>Name</label>
@@ -79,22 +76,12 @@ $(document).ready(function(){
                 ;
 
 
-/* FAIS APPARAITRE LE FORMULAIRE LORS DU CLIQUE SUR LE BOUTON */
-/*
-                $('#openForm').on('click',function(){
-                  $('.ui.form').css('display', 'block');
-                  $('#openForm').css('display', 'none');
 
-                }); // on click
 
-                $('#closeForm').on('click',function(){
-                  $('.ui.form').css('display', 'none');
-                  $('#openForm').css('display', 'inline');
-*/
 
-                }); // on click
+                });
 
-            }); /* FUNCTION */
+ /* FUNCTION */
 </script>
 
 {{outlet}}

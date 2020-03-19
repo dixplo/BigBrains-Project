@@ -7,12 +7,13 @@ export default Route.extend({
           return this.get('store').findAll('developer');
       },
   actions:{
-    addNew(identity, name, fname){
+    addNew(m,identity, name, fname){
       if(!identity || !name || !fname){
 
       }
       else{
         let store=this.get('store');
+        m.set('content',"");
         let developer = this.get('store').createRecord('developer',{identity: identity, name: name,fname:fname}); // developer désigne le model
         developer.save();
       }
