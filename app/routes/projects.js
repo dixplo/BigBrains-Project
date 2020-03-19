@@ -4,6 +4,7 @@ export default Route.extend({
   model() {
           return this.get('store').findAll('project');
       },
+<<<<<<< HEAD
   actions:{
     addNew(name, descriptif, startDate, dueDate){
       if(!name || !descriptif || !startDate || !dueDate){
@@ -20,4 +21,12 @@ export default Route.extend({
       project.save();
     }
   }
+=======
+      actions:{
+      remove(project){
+        project.deleteRecord();
+        project.save();
+      }
+    }
+>>>>>>> a6cb747c66f402bf27c63325c4c9382b4a6506c4
 });
