@@ -23,28 +23,47 @@
    <tr>
      <td>Actions</td>
      <td>
-       <div {{action "remove" project}} class="ui button" id="btnModalDelete">Delete</div>
+       <div class="ui button" id="btnModalDelete">Delete</div>
        <div class="ui button">Edit</div>
-       <div class="ui button">Developers</div>
+       <div class="ui button" id="btnModalStory">Story</div>
      </td>
    </tr>
  </tbody>
 </table>
-<div class="ui modal">
+
+<!-- Valider la suppression -->
+<div class="ui modal delete">
   <div class="header">Do you want delete this project ?</div>
   <div class="content">
     <div class="description">
-      <!--Button oui => action "remove" --> <!-- Button annuler -->
+      <div {{action "remove" project}} class="ui green button">Yes</div>
+      <div class="ui red button">No</div>
+      <!--Button oui => {{action "remove" project}} --> <!-- Button annuler -->
     </div>
   </div>
 </div>
    {{/each}}
 
+<!-- Afficher les storys -->
+<div class="ui modal story">
+  <div class="header">Story</div>
+  <div class="content">
+    <div class="description">
+      Affichage des Story.
+    </div>
+  </div>
+</div>
 
 </div>
 <script>
-$('#btnModalDelete').click(function() {
-  $('.ui.modal').modal('show');
+$('#btnModalStory').click(function() {
+  $('.ui.modal.story').modal('show');
 })
+$('#btnModalDelete').click(function() {
+  $('.ui.modal.delete').modal('show');
+})
+$(".ui.modal.story").modal({
+		closable: true
+	});
 </script>
 {{outlet}}
