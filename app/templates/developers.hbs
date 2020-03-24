@@ -6,35 +6,34 @@
   <div class="fields">
     <div class="field">
       <label>Pseudo</label>
-      <Input @value={{identity}} name="identity" placeholder="Pseudo" class="ui input"/>
+      <Input @value={{model.dev.identity}} name="identity" placeholder="Pseudo" class="ui input"/>
     </div>
     <div class="field">
       <label>Name</label>
-      <Input @value={{name}} name="name" placeholder="Name" class="ui input"/>
+      <Input @value={{model.dev.name}} name="name" placeholder="Name" class="ui input"/>
     </div>
     <div class="field">
       <label>First Name</label>
-      <Input @value={{fname}} name="fname" placeholder="First Name" class="ui input"/>
+      <Input @value={{model.dev.fname}} name="fname" placeholder="First Name" class="ui input"/>
     </div>
   </div>
   <div class="ui error message"></div>
-  <div {{action "addNew" identity name fname}} id="closeForm" class="ui submit button">Add</div>
+  <div {{action "addNew" model.dev model.dev.identity model.dev.name model.dev.fname}} id="closeForm" class="ui submit green button">Add</div>
+
 </div> <!-- UI FORM -->
 </div>
 
 <div class="ui segment"><h3>Developers List</h3>
-  {{#each model as |developer|}}
+  {{#each model.developers as |developer|}}
     <div class="ui green segment" id="devSegment">
-      {{developer.identity}}
-      {{developer.name}}
-      {{developer.fname}}
-        <div {{action "edit" identity name fname}} style="float:right;" class="ui button">Edit</div>
-        <div {{action "remove" developer}} style="float:right;" class="ui button">Remove</div>
-
-        <br><br>
-  </div>
-
-
+        {{developer.identity}}
+        {{developer.name}}
+        {{developer.fname}}
+          <div style="float:right;" class="ui green button">Edit</div>
+          <div {{action "remove" developer}} style="float:right;" class="ui red button">Remove</div>
+          <br>
+          <br>
+    </div>
     {{/each}}
 </div>
 

@@ -23,10 +23,11 @@
     </div>
 
     <div class="ui error message"></div>
-    <div {{action "addNew" name descriptif startDate dueDate}} id="closeForm" class="ui submit button">Add</div>
+    <div {{action "addNew" name descriptif startDate dueDate}} id="closeForm" class="ui submit green button">Add</div>
   </div> <!-- UI FORM -->
 
 </div>
+
 <div class="ui segment">
 {{#each model as |project|}}
 
@@ -51,26 +52,33 @@
    <tr>
      <td>Actions</td>
      <td>
-       <div class="ui button" {{action "remove" project}}>Delete</div>
-       <div class="ui button">Edit</div>
-       <div class="ui button" id="btnModalStory">Story</div>
+       <div class="ui red button" {{action "confirmDelete" model project}}>Delete</div>
+       <div class="ui green button">Edit</div>
+       <div class="ui green button" id="btnModalStory">Story</div>
      </td>
    </tr>
  </tbody>
 </table>
+
    {{/each}}
- </div>
+</div>
  <!-- Valider la suppression -->
  <div class="ui modal delete">
-   <div class="header">Do you want delete this project ?</div>
+   <div class="header">Do you want delete {{model.toDelete.name}} ?</div>
    <div class="content">
      <div class="description">
-       <div {{action "remove" project}} class="ui green button">Yes</div>
-       <div class="ui red button">No</div>
-       <!--Button oui => {{action "remove" project}} --> <!-- Button annuler -->
+       <div class="actions">
+        <div {{action "remove" model.toDelete}} class="ui green deny button">
+              Yes
+        </div>
+        <div class="ui red deny button">
+              No
+        </div>
      </div>
    </div>
  </div>
+</div>
+
 <!-- Afficher les storys -->
 <div class="ui modal story">
   <div class="header">Story</div>
@@ -85,15 +93,10 @@
 $('#btnModalStory').click(function() {
   $('.ui.modal.story').modal('show');
 })
-$('#btnModalDelete').click(function() {
-  $('.ui.modal.delete').modal('show');
-})
 $(".ui.modal.story").modal({
 		closable: true
 	});
-</script>
-<script>
-$(document).ready(function(){
+  $(document).ready(function(){
                   $('.ui.form')
                       .form({
                           fields: {
@@ -111,32 +114,32 @@ $(document).ready(function(){
                                   rules: [
                                       {
                                           type   : 'empty',
-                                          prompt : 'Please enter the description of project.'
+                                          prompt : 'Please enter the project description.'
                                       }
                                   ]
                               },
-                              dateT: {
+                              startDate: {
                                   identifier: 'dateT',
                                   rules: [
                                       {
                                           type   : 'empty',
-                                          prompt : 'Please chose a start date'
+                                          prompt : 'Choose a start date of the project.'
                                       }
                                   ]
                               },
-                              dateD: {
+                              dueDate: {
                                   identifier: 'dateD',
                                   rules: [
                                       {
                                           type   : 'empty',
-                                          prompt : 'Please chose a due date'
+                                          prompt : 'Choose a start date of the project.'
                                       }
                                   ]
                               }
                           }
                       })
                   ;
-              });
-
+              }); /* FUNCTION */
 </script>
+
 {{outlet}}
