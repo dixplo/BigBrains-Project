@@ -1,33 +1,10 @@
-<div class="ui segment"><h3>Projects List</h3>
+{{outlet}}
 
-  <div class="ui form">
-    <div class="two fields">
-      <div class="field">
-        <label>Name</label>
-        <Input @value={{name}} name="name" placeholder="Name" class="ui input"/>
-      </div>
-      <div class="field">
-        <label>Description</label>
-        <Input @value={{descriptif}} name="description" placeholder="Description" class="ui input"/>
-      </div>
-    </div>
-      <div class="two fields">
-      <div class="field">
-        <label>Start date</label>
-        <Input @value={{startDate}} type="date" name="dateT" placeholder="Y-M-D" class="ui input"/>
-      </div>
-      <div class="field">
-        <label>Due date</label>
-        <Input @value={{dueDate}} type="date" name="dateD" placeholder="Y-M-D" class="ui input"/>
-      </div>
-    </div>
+<div class="ui segment">
+    <LinkTo class="ui green button" style="float:right;" @route="projects.new">Add</LinkTo>
 
-    <div class="ui error message"></div>
-    <div {{action "addNew" name descriptif startDate dueDate}} id="closeForm" class="ui submit green button">Add</div>
-  </div> <!-- UI FORM -->
-
-</div>
-
+  <h3>Projects List</h3>
+    
 <div class="ui segment">
 {{#each model as |project|}}
 
@@ -94,6 +71,8 @@
   </div>
 </div>
 
+</div> <!-- Liste des projects-->
+
 <script>
 $('#btnModalStory').click(function() {
   $('.ui.modal.story').modal('show');
@@ -147,4 +126,3 @@ $(".ui.modal.story").modal({
               });
 </script>
 
-{{outlet}}
