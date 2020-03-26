@@ -1,38 +1,19 @@
+{{outlet}}
+
 <div class="ui segment">
+  <LinkTo class="ui green button" style="float:right;" @route="developers.new">Add</LinkTo>
+  <h3>Developers List</h3>
 
-  <h3>Add Developer</h3>
-
-<div class="ui form">
-  <div class="fields">
-    <div class="field">
-      <label>Pseudo</label>
-      <Input @value={{model.dev.identity}} name="identity" placeholder="Pseudo" class="ui input"/>
-    </div>
-    <div class="field">
-      <label>Name</label>
-      <Input @value={{model.dev.name}} name="name" placeholder="Name" class="ui input"/>
-    </div>
-    <div class="field">
-      <label>First Name</label>
-      <Input @value={{model.dev.fname}} name="fname" placeholder="First Name" class="ui input"/>
-    </div>
-  </div>
-  <div class="ui error message"></div>
-  <div {{action "addNew" model.dev model.dev.identity model.dev.name model.dev.fname}} id="closeForm" class="ui submit green button">Add</div>
-
-</div> <!-- UI FORM -->
-</div>
-
-<div class="ui segment"><h3>Developers List</h3>
   {{#each model.developers as |developer|}}
     <div class="ui green segment" id="devSegment">
         {{developer.identity}}
         {{developer.name}}
         {{developer.fname}}
-          <a style="float:right;" class="ui green button" href="/developers/edit">Edit</a>
           <div {{action "remove" developer}} style="float:right;" class="ui red button">Remove</div>
+          <LinkTo class="ui green button" style="float:right;" @route="developers.edit" @model={{developer.id}}>Edit</LinkTo>
           <br>
           <br>
+          {{outlet developer.id}}
     </div>
     {{/each}}
 </div>
@@ -75,5 +56,3 @@ $(document).ready(function(){
                 ;
             }); /* FUNCTION */
 </script>
-
-{{outlet}}

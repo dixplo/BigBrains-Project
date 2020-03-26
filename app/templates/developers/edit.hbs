@@ -1,2 +1,28 @@
+<div class="ui segment">
+
+  <h3>Edit Developer</h3>
+
+<div class="ui form">
+  <div class="three fields">
+    <div class="field">
+      <label>Pseudo</label>
+      <Input @value={{model.identity}} name="Eidentity" placeholder="{{model.dev.identity}}" class="ui input"/>
+      <Input @value={{model.id}}  type="hidden" name="Eid" class="ui input"/>
+    </div>
+    <div class="field">
+      <label>Name</label>
+      <Input @value={{model.name}} name="Ename" placeholder="{{model.dev.name}}" class="ui input"/>
+    </div>
+    <div class="field">
+      <label>First Name</label>
+      <Input @value={{model.fname}} name="Efname" placeholder="{{model.dev.fname}}" class="ui input"/>
+    </div>
+  </div>
+
+  <div class="ui error message"></div>
+  <div {{action "edit" model}} class="ui submit green button">Edit</div>
+
+</div>
+</div>
+<br>
 {{outlet}}
-  
