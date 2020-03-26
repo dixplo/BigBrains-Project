@@ -53,7 +53,12 @@
      <td>Actions</td>
      <td>
        <div class="ui red button" {{action "confirmDelete" model project}}>Delete</div>
-       <div class="ui green button">Edit</div>
+       <LinkTo class="ui green button" @route="projects.edit" @model={{project.id}}>Edit</LinkTo>
+          <br>
+          <br>
+          {{outlet project.id}}
+
+       <!--<div class="ui green button">Edit</div>-->
        <div class="ui green button" id="btnModalStory">Story</div>
      </td>
    </tr>

@@ -13,6 +13,7 @@ Router.map(function() {
   });
   this.route('projects', function() {
     this.route('new');
+    this.route('edit', {path: 'project/:project_id'});
   });
   this.route('home');
 });
