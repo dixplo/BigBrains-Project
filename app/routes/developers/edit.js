@@ -14,12 +14,19 @@ export default Route.extend({
 },
   actions:{
     edit(model){
+      let error = !model.identity || !model.name || !model.fname;
+      if(error){
+        set(model,'error',error);
+      }
+      else{
         let dev = get(model,"dev");
         dev.set("name",model.name);
         dev.set("fname",model.fname);
         dev.set("identity",model.identity);
         dev.save();
         this.transitionTo("/developers");
+      }
+
       },
       backToDev(model){
         this.transitionTo("/developers");

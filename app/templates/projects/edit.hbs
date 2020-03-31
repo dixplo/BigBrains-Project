@@ -1,0 +1,32 @@
+<div class="ui segment">
+
+  <h3>Edit Project</h3>
+
+<div class="ui form">
+  <div class="three fields">
+    <div class="field">
+      <label>Name</label>
+      <Input @value={{model.name}} name="Ename" placeholder="{{model.proj.name}}" class="ui input"/>
+      <!--<Input @value={{model.id}}  type="hidden" name="Eid" class="ui input"/> UTILITÉ ? -->
+    </div>
+    <div class="field">
+      <label>Description</label>
+      <Input @value={{model.descriptif}} name="Edesc" placeholder="{{model.proj.name}}" class="ui input"/>
+    </div>
+    <div class="field">
+      <label>Start date</label>
+      <Input @value={{model.startDate}} type="date" name="EdateD" placeholder="{{model.proj.startDate}}" class="ui input"/>
+    </div>
+    <div class="field">
+      <label>Due date</label>
+      <Input @value={{model.dueDate}} type="date" name="EdateD" placeholder="{{model.proj.dueDate}}" class="ui input"/>
+    </div>
+  </div>
+
+  <div class="ui error message"></div>
+  <div {{action "edit" model}} class="ui submit green button">Edit</div>
+
+</div>
+</div>
+<br>
+{{outlet}}

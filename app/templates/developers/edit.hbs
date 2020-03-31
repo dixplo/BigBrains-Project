@@ -34,7 +34,8 @@
               <Input type="text" @value={{model.fname}} placeholder="{{model.dev.fname}}" />
           </div>
       </div>
-<div {{action "edit" model}} class="ui submit green button">Edit</div>
+
+      <div {{action "edit" model}} class="ui submit green button">Edit</div>
 
   {{#if model.error}}
       <div class="ui inverted red segment">
