@@ -25,6 +25,9 @@ export default Route.extend({
     confirmDelete(model,dev){
       model.set('toDelete',dev);
       $('.ui.modal.delete').modal('setting', 'closable', true).modal('show');
+    },
+    test(){
+      this.transitionTo("/developers/new");
     }
 }
 });

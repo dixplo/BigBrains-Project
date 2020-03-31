@@ -20,6 +20,9 @@ export default Route.extend({
         dev.set("identity",model.identity);
         dev.save();
         this.transitionTo("/developers");
+      },
+      backToDev(model){
+        this.transitionTo("/developers");
       }
   }
 });

@@ -1,7 +1,8 @@
 {{outlet}}
 
 <div class="ui segment">
-  <LinkTo class="ui green button" style="float:right;" @route="developers.new">Add</LinkTo>
+  <!--<LinkTo class="ui green button" style="float:right;" @route="developers.new">Add</LinkTo>-->
+  <div {{action "test"}} class="ui green button" style="float:right;">Add</div>
   <h3>Developers List</h3>
 
   {{#each model.developers as |developer|}}
@@ -9,50 +10,23 @@
         {{developer.identity}}
         {{developer.name}}
         {{developer.fname}}
-          <div {{action "remove" developer}} style="float:right;" class="ui red button">Remove</div>
-          <LinkTo class="ui green button" style="float:right;" @route="developers.edit" @model={{developer.id}}>Edit</LinkTo>
+
+          <div {{action "remove" developer}} class="ui vertical animated red button" tabindex="0" style="float:right;">
+          <div class="hidden content">Delete</div>
+          <div class="visible content">
+          <i class="trash alternate icon"></i>
+          </div>
+          </div>
+
+          <LinkTo class="ui vertical animated green button" style="float:right;" @route="developers.edit" @model={{developer.id}}>
+            <div class="hidden content">Edit</div>
+            <div class="visible content">
+            <i class="edit icon"></i>
+            </div>
+          </LinkTo>
           <br>
           <br>
-          {{outlet developer.id}}
     </div>
+
     {{/each}}
 </div>
-
-
-<script>
-$(document).ready(function(){
-                $('.ui.form')
-                    .form({
-                        fields: {
-                            name: {
-                                identifier: 'name',
-                                rules: [
-                                    {
-                                        type   : 'empty',
-                                        prompt : 'Please enter the developer name.'
-                                    }
-                                ]
-                            },
-                            fname: {
-                                identifier: 'fname',
-                                rules: [
-                                    {
-                                        type   : 'empty',
-                                        prompt : 'Please enter the developer first name.'
-                                    }
-                                ]
-                            },
-                            identity: {
-                                identifier: 'identity',
-                                rules: [
-                                    {
-                                        type   : 'empty',
-                                        prompt : 'Choose valid pseudo.'
-                                    }
-                                ]
-                            }
-                        }
-                    })
-                ;
-            }); /* FUNCTION */
-</script>
