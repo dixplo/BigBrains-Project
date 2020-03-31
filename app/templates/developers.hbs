@@ -1,8 +1,6 @@
 {{outlet}}
 
 <div class="ui segment">
-  <!--<LinkTo class="ui green button" style="float:right;" @route="developers.new">Add</LinkTo>-->
-  <div {{action "test"}} class="ui green button" style="float:right;">Add</div>
   <h3>Developers List</h3>
 
   {{#each model.developers as |developer|}}
@@ -29,4 +27,18 @@
     </div>
 
     {{/each}}
+
+
+<div class="ui divider"/>
+<div class="ui segment" style="text-align: center;">
+  <div {{action "transitionAdd"}} class="ui animated fade green button" tabindex="0">
+      <div class="visible content">Add Developper</div>
+      <div class="hidden content">
+        <i class="plus icon"></i>
+      </div>
+    </div>
+
+</div>
+
+
 </div>

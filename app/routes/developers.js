@@ -11,6 +11,7 @@ export default Route.extend({
       dev: EmberObject.create()
         });
       },
+
   actions:{
     addNew(dev,ident,name,fname){
       if(!ident || !name || !fname){}
@@ -26,7 +27,7 @@ export default Route.extend({
       model.set('toDelete',dev);
       $('.ui.modal.delete').modal('setting', 'closable', true).modal('show');
     },
-    test(){
+    transitionAdd(){
       this.transitionTo("/developers/new");
     }
 }
