@@ -1,4 +1,5 @@
 <div class="ui message attached icon">
+  <p>{{model.developers.name}}</p>
     <i class="close icon" {{action 'backToProj'}}></i>
     <div class="content">
         <div class="header">
@@ -40,6 +41,33 @@
             <Input @value={{model.dueDate}} type="date" name="dateE" placeholder="Y-M-D" class="ui input"/>
         </div>
     </div>
+      <div class="two fields">
+        <div class="ui fluid labeled input field" data-children-count="1">
+            <div class="ui label">
+                Owner
+            </div>  
+            <!-- SELECT -->
+<!--
+            <select class="ui dropdown" id="select">
+                  <option value="1">...</option>
+                {{#each this.model.developers as |developer|}}
+
+                  <option value="">{{developer.fname}}</option>
+
+                {{/each}}
+            </select>
+-->
+            <select onchange={{action (mut model.project.developer) value="target.value"}}>
+            {{#each model.developers as |dev|}}
+                <option value={{model.project.developer}} selected={{eq dev model.project.developer}}>{{dev.identity}}</option>
+            {{/each}}
+            </select>
+
+            <!-- SELECT -->
+developpeur : 
+{{model.project}}
+        </div>
+    </div>
 
 </div>
 <div class="ui bottom attached message">
@@ -49,4 +77,10 @@
             class="icon times circle outline" /> Cancel</button>
 </div>
 <div class="ui divider" />
+
+<script>
+  /*var e = document.getElementById("select");
+  var strUser = e.options[e.selectedIndex].text;*/
+</script>
+
 {{outlet}}

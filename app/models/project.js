@@ -5,5 +5,6 @@ export default Model.extend({
   name: DS.attr('string'),
   descriptif: DS.attr('string'), // proprieté persistente
   startDate: DS.attr('string'),
-  dueDate: DS.attr('string')
+  dueDate: DS.attr('string'),
+  developer: DS.attr()
 });
