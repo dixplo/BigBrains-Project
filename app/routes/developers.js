@@ -24,8 +24,8 @@ export default Route.extend({
     },
     //A finir => validation de suppression d'un dev
     confirmDelete(model,dev){
-      model.set('toDelete',dev);
-      $('.ui.modal.delete').modal('setting', 'closable', true).modal('show');
+      set(model,'toDelete',dev);
+      $('.ui.modal').modal('setting', 'closable', true).modal('show');
     },
     transitionAdd(){
       this.transitionTo("/developers/new");
