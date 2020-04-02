@@ -1,5 +1,5 @@
 <div class="ui message attached icon">
-    <i class="close icon" {{action 'backToDev'}}></i>
+    <i class="close icon" {{action 'backToDev' model}}></i>
     <div class="content">
         <div class="header">
             Add developer
@@ -7,8 +7,8 @@
     </div>
 </div>
 <div class="ui form attached fluid segment">
-  <div class="two fields">
 
+  <div class="two fields">
       <div class="ui fluid labeled input field" data-children-count="1">
           <div class="ui label">
               Identity
@@ -16,6 +16,7 @@
           <Input type="text" @value={{model.identity}} placeholder="Identity" />
       </div>
   </div>
+
   <div class="two fields">
         <div class="ui fluid labeled input field" data-children-count="1">
             <div class="ui label">
@@ -32,12 +33,21 @@
             <Input type="text" @value={{model.fname}} placeholder="Firstname" />
         </div>
     </div>
+
+{{#if model.error}}
+    <div class="ui inverted red segment">
+  <p>All fields are required.</p>
 </div>
+{{/if}}
+</div>
+
+
+
 <div class="ui bottom attached message">
     <button class="ui button inverted positive icon" {{action 'addNew' model}}><i class="check circle icon" />
         Validate</button>
-    <button class="ui button inverted red icon" {{action 'backToDev'}}><i
-            class="icon times circle outline" /> Cancel</button>
+    <button class="ui button inverted red icon" {{action 'backToDev' model}}>
+      <i class="icon times circle outline"/> Cancel</button>
 </div>
-<div class="ui divider" />
+
 {{outlet}}

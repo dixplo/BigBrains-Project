@@ -9,7 +9,7 @@ var Adapater=DS.RESTAdapter.extend({
     }
     return hash;
   },
-  host:'http://127.0.0.1:8090',
+  host:'http://127.0.0.1:8080',
   namespace: 'boards',
   urlForDeleteRecord(id, modelName) {
     modelName=pluralize(modelName);
