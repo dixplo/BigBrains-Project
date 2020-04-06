@@ -1,6 +1,6 @@
 <div class="ui message attached icon">
   <p>{{model.developers.name}}</p>
-    <i class="close icon" {{action 'backToProj'}}></i>
+    <i class="close icon" {{action 'backToProj' model}}></i>
     <div class="content">
         <div class="header">
             Add project
@@ -41,46 +41,19 @@
             <Input @value={{model.dueDate}} type="date" name="dateE" placeholder="Y-M-D" class="ui input"/>
         </div>
     </div>
-      <div class="two fields">
-        <div class="ui fluid labeled input field" data-children-count="1">
-            <div class="ui label">
-                Owner
-            </div>  
-            <!-- SELECT -->
-<!--
-            <select class="ui dropdown" id="select">
-                  <option value="1">...</option>
-                {{#each this.model.developers as |developer|}}
-
-                  <option value="">{{developer.fname}}</option>
-
-                {{/each}}
-            </select>
--->
-            <select onchange={{action (mut model.project.developer) value="target.value"}}>
-            {{#each model.developers as |dev|}}
-                <option value={{model.project.developer}} selected={{eq dev model.project.developer}}>{{dev.identity}}</option>
-            {{/each}}
-            </select>
-
-            <!-- SELECT -->
-developpeur : 
-{{model.project}}
-        </div>
+    {{#if model.error}}
+        <div class="ui inverted red segment">
+      <p>All fields are required.</p>
+    </div>
+    {{/if}}
     </div>
 
-</div>
+
 <div class="ui bottom attached message">
     <button class="ui button inverted positive icon" {{action 'addNew' model}}><i class="check circle icon" />
         Validate</button>
-    <button class="ui button inverted red icon" {{action 'backToProj'}}><i
+    <button class="ui button inverted red icon" {{action 'backToProj' model}}><i
             class="icon times circle outline" /> Cancel</button>
 </div>
-<div class="ui divider" />
-
-<script>
-  /*var e = document.getElementById("select");
-  var strUser = e.options[e.selectedIndex].text;*/
-</script>
 
 {{outlet}}

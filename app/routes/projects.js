@@ -18,7 +18,7 @@ export default Route.extend({
       project.save();
     },
     confirmDelete(model,project){
-      model.set('toDelete',project);
+      set(model,'toDelete',project);
       $('.ui.modal.delete').modal('setting', 'closable', true).modal('show');
 }
   }
