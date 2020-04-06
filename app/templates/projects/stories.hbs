@@ -2,7 +2,34 @@
 
 <div class="ui segment">
   <h1>Stories: {{model.name}}</h1>
-  <div>
+
+<div class="ui segment">
   <h3>Project Informations:</h3>
+  <div class="ui divided relaxed horizontal list">
+    <div class="item">
+      <div class="content">
+        <div class="header">Name</div>
+        {{model.name}}
+        </div>
+    </div>
+    <div class="item">
+      <div class="content">
+        <div class="header">Description</div>
+        {{model.descriptif}}
+      </div>
+    </div>
+    <div class="item">
+      <div class="content">
+        <div class="header">Start Date</div>
+        {{model.startDate}}
+      </div>
+    </div>
+    <div class="item">
+      <div class="content">
+        <div class="header">Due Date</div>
+        {{model.dueDate}}
+      </div>
+    </div>
+</div>
 </div>
 </div>

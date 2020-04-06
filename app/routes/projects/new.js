@@ -17,7 +17,9 @@ export default Route.extend({
           startDate: get(model,"startDate"),
           dueDate: get(model,"dueDate"),
         }).save();
-        this.transitionTo("/projects");}
+        set(model,'error','');
+        this.transitionTo("/projects");
+      }
 
       },
       backToProj(model){
