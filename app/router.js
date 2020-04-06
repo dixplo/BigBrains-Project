@@ -14,6 +14,7 @@ Router.map(function() {
   this.route('projects', function() {
     this.route('new');
     this.route('edit', {path: 'project/:project_id'});
+    this.route('stories', {path: 'project/stories/:project_id'});
   });
   this.route('home');
 });

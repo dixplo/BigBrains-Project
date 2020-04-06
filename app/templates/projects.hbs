@@ -4,7 +4,7 @@
     <LinkTo class="ui green button" style="float:right;" @route="projects.new">Add</LinkTo>
 
   <h3>Projects List</h3>
-   
+
 <div class="ui segment">
 {{#each this.model.projects as |project|}}
 
@@ -28,7 +28,7 @@
      <td>Due Date</td>
      <td>{{project.dueDate}}</td>
    </tr>
-   
+
    <tr>
      <td>Owner</td>
      <td>{{project.owner}}</td>
@@ -37,14 +37,17 @@
    <tr>
      <td>Actions</td>
      <td>
-       <!--<div class="ui red button" {{action "confirmDelete" model project}}>Delete</div>-->
        <div class="ui red button" {{action "remove" project}}>Delete (temp)</div>
        <LinkTo class="ui green button" @route="projects.edit" @model={{project.id}}>Edit</LinkTo>
-          
+
           {{outlet project.id}}
 
-       <!--<div class="ui green button">Edit</div>-->
-       <div class="ui green button" id="btnModalStory">Story</div>
+          <LinkTo class="ui vertical animated green button" @route="projects.stories" @model={{project.id}}>
+            <div class="hidden content">Story</div>
+            <div class="visible content">
+            <i class="edit icon"></i>
+            </div>
+          </LinkTo>
      </td>
    </tr>
  </tbody>
@@ -69,68 +72,4 @@
  </div>
 </div>
 
-<!-- Afficher les storys -->
-<div class="ui modal story">
-  <div class="header">Story</div>
-  <div class="content">
-    <div class="description">
-      Affichage des Story.
-    </div>
-  </div>
 </div>
-
-</div> <!-- Liste des projects-->
-
-<script>
-$('#btnModalStory').click(function() {
-  $('.ui.modal.story').modal('show');
-})
-$(".ui.modal.story").modal({
-		closable: true
-	});
-  $(document).ready(function(){
-                  $('.ui.form')
-                      .form({
-                          fields: {
-                              name: {
-                                  identifier: 'name',
-                                  rules: [
-                                      {
-                                          type   : 'empty',
-                                          prompt : 'Please enter the project name.'
-                                      }
-                                  ]
-                              },
-                              description: {
-                                  identifier: 'description',
-                                  rules: [
-                                      {
-                                          type   : 'empty',
-                                          prompt : 'Please enter the project description.'
-                                      }
-                                  ]
-                              },
-                              startDate: {
-                                  identifier: 'dateT',
-                                  rules: [
-                                      {
-                                          type   : 'empty',
-                                          prompt : 'Choose a start date of the project.'
-                                      }
-                                  ]
-                              },
-                              dueDate: {
-                                  identifier: 'dateD',
-                                  rules: [
-                                      {
-                                          type   : 'empty',
-                                          prompt : 'Choose a start date of the project.'
-                                      }
-                                  ]
-                              }
-                          }
-                      })
-                  ;
-              });
-</script>
-

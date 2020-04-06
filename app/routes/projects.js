@@ -13,15 +13,6 @@ export default Route.extend({
       },
 
   actions:{
-    addNew(name, descriptif, startDate, dueDate){
-      if(!name || !descriptif || !startDate || !dueDate){}
-      else{
-        alert(dev);
-        let store=this.get('store');
-        let project = this.get('store').createRecord('project',{name: name, descriptif: descriptif,startDate:startDate, dueDate: dueDate, developer: "test"});
-        project.save();
-      }
-    },
     remove(project){
       project.deleteRecord();
       project.save();

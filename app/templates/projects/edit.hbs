@@ -1,32 +1,59 @@
-<div class="ui segment">
+<div class="ui message attached icon">
+  <p>{{model.developers.name}}</p>
+    <i class="close icon" {{action 'backToProj'}}></i>
+    <div class="content">
+        <div class="header">
+            Edit project
+        </div>
+    </div>
+</div>
+<div class="ui form attached fluid segment">
+  <div class="two fields">
 
-  <h3>Edit Project</h3>
-
-<div class="ui form">
-  <div class="three fields">
-    <div class="field">
-      <label>Name</label>
-      <Input @value={{model.name}} name="Ename" placeholder="{{model.proj.name}}" class="ui input"/>
-      <!--<Input @value={{model.id}}  type="hidden" name="Eid" class="ui input"/> UTILITÉ ? -->
-    </div>
-    <div class="field">
-      <label>Description</label>
-      <Input @value={{model.descriptif}} name="Edesc" placeholder="{{model.proj.name}}" class="ui input"/>
-    </div>
-    <div class="field">
-      <label>Start date</label>
-      <Input @value={{model.startDate}} type="date" name="EdateD" placeholder="{{model.proj.startDate}}" class="ui input"/>
-    </div>
-    <div class="field">
-      <label>Due date</label>
-      <Input @value={{model.dueDate}} type="date" name="EdateD" placeholder="{{model.proj.dueDate}}" class="ui input"/>
-    </div>
+      <div class="ui fluid labeled input field" data-children-count="1">
+          <div class="ui label">
+              Name
+          </div>
+          <Input type="text" @value={{model.name}} placeholder="Name" />
+      </div>
   </div>
+  <div class="two fields">
+        <div class="ui fluid labeled input field" data-children-count="1">
+            <div class="ui label">
+                Description
+            </div>
+            <Input type="text" @value={{model.descriptif}} placeholder="Description" />
+        </div>
+    </div>
+    <div class="two fields">
+        <div class="ui fluid labeled input field" data-children-count="1">
+            <div class="ui label">
+                Start date
+            </div>
+            <Input @value={{model.startDate}} type="date" name="dateD" placeholder="Y-M-D" class="ui input"/>
+        </div>
+    </div>
+	<div class="two fields">
+        <div class="ui fluid labeled input field" data-children-count="1">
+            <div class="ui label">
+                Due date
+            </div>
+            <Input @value={{model.dueDate}} type="date" name="dateE" placeholder="Y-M-D" class="ui input"/>
+        </div>
+    </div>
 
-  <div class="ui error message"></div>
-  <div {{action "edit" model}} class="ui submit green button">Edit</div>
+    {{#if model.error}}
+        <div class="ui inverted red segment">
+      <p>All fields are required.</p>
+    </div>
+    {{/if}}
+    
+</div>
+<div class="ui bottom attached message">
+    <button class="ui button inverted positive icon" {{action 'edit' model}}><i class="check circle icon" />
+        Validate</button>
+    <button class="ui button inverted red icon" {{action 'backToProj'}}><i
+            class="icon times circle outline" /> Cancel</button>
+</div>
 
-</div>
-</div>
-<br>
 {{outlet}}

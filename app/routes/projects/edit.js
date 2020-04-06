@@ -10,17 +10,25 @@ export default Route.extend({
       name: get(proj, "name"),
       descriptif: get(proj, "descriptif"),
       startDate: get(proj, "startDate"),
-      dueDate: get(proj, "dueDate"),      
+      dueDate: get(proj, "dueDate"),
     })
 },
   actions:{
     edit(model){
+      let error = !model.name || !model.descriptif || !model.startDate || !model.dueDate;
+      if(error){
+        set(model,'error',error);
+      }
+      else{
         let proj = get(model,"proj");
         proj.set("name",model.name);
         proj.set("descriptif",model.descriptif);
         proj.set("startDate",model.startDate);
         proj.set("dueDate",model.dueDate);
         proj.save();
+        this.transitionTo("/projects");
+      }},
+      backToProj(){
         this.transitionTo("/projects");
       }
   }
