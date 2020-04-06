@@ -14,5 +14,10 @@ export default Route.extend({
       startDate: get(proj, "startDate"),
       dueDate: get(proj, "dueDate"),
     })
-  }
+  },
+  /*renderTemplate() {
+        this.render('projects.stories','projects', {
+            into: 'projects.stories'
+        });
+    }*/
 });

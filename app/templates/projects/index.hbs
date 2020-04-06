@@ -37,15 +37,28 @@
    <tr>
      <td>Actions</td>
      <td>
-       <div class="ui red button" {{action "confirmDelete" model project}}>Delete</div>
-       <LinkTo class="ui green button" @route="projects.edit" @model={{project.id}}>Edit</LinkTo>
+       <div class="ui vertical animated red button" {{action "confirmDelete" model project}}>
+         <div class="hidden content">Delete</div>
+         <div class="visible content">
+         <i class="trash alternate icon"></i>
+         </div>
+       </div>
+
+
+
+       <LinkTo class="ui vertical animated green button" @route="projects.edit" @model={{project.id}}>
+         <div class="hidden content">Edit</div>
+         <div class="visible content">
+         <i class="edit icon"></i>
+         </div>
+       </LinkTo>
 
           {{outlet project.id}}
 
           <LinkTo class="ui vertical animated green button" @route="projects.stories" @model={{project.id}}>
             <div class="hidden content">Story</div>
             <div class="visible content">
-            <i class="edit icon"></i>
+            <i class="list icon"></i>
             </div>
           </LinkTo>
      </td>
