@@ -5,7 +5,13 @@ import { set } from '@ember/object';
 import { get } from '@ember/object';
 
 export default Route.extend({
-  async model(params){
+  model(params){
+    return this.get('store').findRecord('project',params.project_id);
+  }
+
+
+
+  /*async model(params){
     let proj = await this.get('store').findRecord('project',params.project_id); // definition "proj"
     return RSVP.hash({
       proj: proj,
@@ -13,8 +19,8 @@ export default Route.extend({
       descriptif: get(proj, "descriptif"),
       startDate: get(proj, "startDate"),
       dueDate: get(proj, "dueDate")
-    })
-  },
+    })*/
+/*  },
   async modal(params){
     let story = await this.store.query('story',{
       filter: {project: param.project_id}});
@@ -23,7 +29,7 @@ export default Route.extend({
       code: get(story,'code'),
       descriptif: get(story,'descriptif')
     })
-  }
+  }*/
   /*renderTemplate() {
         this.render('projects.stories','projects', {
             into: 'projects.stories'
