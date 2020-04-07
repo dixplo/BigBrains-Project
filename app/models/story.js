@@ -2,9 +2,9 @@ import DS from 'ember-data';
 const { Model } = DS;
 
 export default Model.extend({
-  code:DS.attr('string'), // proprieté persistente
-  descriptif:DS.attr('string') // proprieté persistente
-
+  code:DS.attr('string'), // proprietï¿½ persistente
+  descriptif:DS.attr('string'), // proprietï¿½ persistente
+  project:DS.belongsTo('project')
 
 
 });

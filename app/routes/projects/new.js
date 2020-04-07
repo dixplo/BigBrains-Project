@@ -4,6 +4,9 @@ import EmberObject from '@ember/object';
 import { set,get } from '@ember/object';
 
 export default Route.extend({
+  model(){
+     return EmberObject.create();
+   },
   actions:{
       addNew(model){
         let error = !model.name || !model.descriptif || !model.startDate || !model.dueDate;
