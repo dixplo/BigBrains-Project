@@ -1,8 +1,6 @@
 {{outlet}}
 
 <div class="ui segment">
-    <LinkTo class="ui green button" style="float:right;" @route="projects.new">Add</LinkTo>
-
   <h3>Projects List</h3>
 
 <div class="ui segment">
@@ -67,6 +65,16 @@
 </table>
 
    {{/each}}
+</div>
+<div class="ui divider"/>
+<div class="ui segment" style="text-align: center;">
+  <LinkTo class="ui animated fade green button" tabindex="0" @route="projects.new">
+      <div class="visible content">Add Project</div>
+      <div class="hidden content">
+        <i class="plus icon"></i>
+      </div>
+    </LinkTo>
+
 </div>
  <!-- Valider la suppression -->
  <div class="ui modal delete">
