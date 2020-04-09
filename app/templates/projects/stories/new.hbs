@@ -1,5 +1,5 @@
 <div class="ui message attached icon">
-    <i class="close icon" {{action 'cancel'}}></i>
+    <i class="close icon" {{action 'cancel' model.id}}></i>
     <div class="content">
         <div class="header">
             Add Story
@@ -32,9 +32,9 @@
 
 
 <div class="ui bottom attached message">
-    <button class="ui button inverted positive icon" {{action 'addNew' model.code model.description model}} ><i class="check circle icon" />
+    <button class="ui button inverted positive icon" {{action 'addNew' model.code model.description model model.id}} ><i class="check circle icon" />
         Validate</button>
-    <button class="ui button inverted red icon" {{action 'cancel'}}><i
+    <button class="ui button inverted red icon" {{action 'cancel' model.id}}><i
             class="icon times circle outline" /> Cancel</button>
 </div>
 

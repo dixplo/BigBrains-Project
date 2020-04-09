@@ -7,5 +7,14 @@ import { get } from '@ember/object';
 export default Route.extend({
   model(params){
     return this.get('store').findRecord('project',params.project_id);
+  },
+  actions:{
+    deleteStory(story, project, stories){
+        stories.removeObject(story);
+        project.save();
+        story.deleteRecord();
+        story.save();
+
+    }
   }
 });
