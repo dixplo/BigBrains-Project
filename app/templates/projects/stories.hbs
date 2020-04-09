@@ -34,6 +34,9 @@
 </div>
 
 <div class="ui segment">
+  <LinkTo class="ui green button" @route="projects.stories.new" @model={{model.id}}>
+Add Story
+  </LinkTo>
 <h3>Project Stories:</h3>
 
 {{#each model.stories as |story|}}
