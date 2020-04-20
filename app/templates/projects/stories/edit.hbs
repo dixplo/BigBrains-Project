@@ -1,0 +1,42 @@
+<div class="ui message attached icon">
+    <i class="close icon" {{action 'cancel' model.id model}}></i>
+    <div class="content">
+        <div class="header">
+            Edit Story
+        </div>
+    </div>
+</div>
+<div class="ui form attached fluid segment">
+  <div class="two fields">
+      <div class="ui fluid labeled input field" data-children-count="1">
+          <div class="ui label">
+              Code
+          </div>
+          <Input type="text" @value={{model.code}} placeholder="Code" />
+      </div>
+  </div>
+  <div class="two fields">
+      <div class="ui fluid labeled input field" data-children-count="1">
+          <div class="ui label">
+              Description
+          </div>
+          <Input type="text" @value={{model.description}} placeholder="Description" />
+      </div>
+  </div>
+    {{#if model.error}}
+        <div class="ui inverted red segment">
+      <p>All fields are required.</p>
+    </div>
+    {{/if}}
+    </div>
+
+
+<div class="ui bottom attached message">
+    <button class="ui button inverted positive icon" {{action 'editStory' model model.id }} ><i class="check circle icon" />
+        Validate</button>
+    <button class="ui button inverted red icon" {{action 'cancel' model.id model}}><i
+            class="icon times circle outline" /> Cancel</button>
+</div>
+
+
+{{outlet}}

@@ -42,8 +42,6 @@
          </div>
        </div>
 
-
-
        <LinkTo class="ui vertical animated green button" @route="projects.edit" @model={{project.id}}>
          <div class="hidden content">Edit</div>
          <div class="visible content">
@@ -51,12 +49,12 @@
          </div>
        </LinkTo>
 
-          {{outlet project.id}}
+          
 
           <LinkTo class="ui vertical animated green button" @route="projects.stories" @model={{project.id}}>
-            <div class="hidden content">Story</div>
+            <div class="hidden content">Board</div>
             <div class="visible content">
-            <i class="list icon"></i>
+            <i class="clipboard icon"></i>
             </div>
           </LinkTo>
      </td>

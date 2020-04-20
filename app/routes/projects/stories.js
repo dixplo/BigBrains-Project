@@ -9,6 +9,10 @@ export default Route.extend({
     return this.get('store').findRecord('project',params.project_id);
   },
   actions:{
+    confirmDelete(model){
+      set(model,'toDelete');
+      $('.ui.modal.delete').modal('setting', 'closable', true).modal('show');
+},
     deleteStory(story, project, stories){
         //Suppression de la référence dans le projet
         stories.removeObject(story);
