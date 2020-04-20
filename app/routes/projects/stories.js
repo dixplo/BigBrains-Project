@@ -10,11 +10,12 @@ export default Route.extend({
   },
   actions:{
     deleteStory(story, project, stories){
+        //Suppression de la référence dans le projet
         stories.removeObject(story);
         project.save();
+        //Suppression de la story
         story.deleteRecord();
         story.save();
-
     }
   }
 });
