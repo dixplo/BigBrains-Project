@@ -11,7 +11,8 @@ export default Route.extend({
     return RSVP.hash({
       story: story,
       code: get(story, "code"),
-      description: get(story, "description")
+      description: get(story, "description"),
+      id: get(story,"project")
     })
 },
   actions:{

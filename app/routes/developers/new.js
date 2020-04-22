@@ -17,6 +17,9 @@ export default Route.extend({
             name: get(model,"name"),
             fname: get(model,"fname")
           }).save();
+          set(model,'name','');
+          set(model,'identity','');
+          set(model,'fname','');
           this.transitionTo("/developers");
           }
       },

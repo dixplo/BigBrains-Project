@@ -1,7 +1,7 @@
 {{outlet}}
 
 <div class="ui segment">
-  <h1>Board: {{model.name}}</h1>
+  <h1>{{model.name}}</h1>
 
 <div class="ui segment">
   <h3>Project Informations:</h3>
@@ -49,14 +49,38 @@
   <i class="close alternate icon"></i>
   </div>
   </div>
-  
+
   <LinkTo class="ui vertical animated green button" @route="projects.stories.edit" @model={{story.id}} style="float: right;">
     <div class="hidden content">Edit</div>
     <div class="visible content">
     <i class="edit icon"></i>
     </div>
   </LinkTo>
+
+  <LinkTo class="ui vertical animated green button" @route="projects.stories.tags.new" @model={{story.id}} style="float: right;">
+    <div class="hidden content">Add Tag</div>
+    <div class="visible content">
+    <i class="add icon"></i>
+    </div>
+  </LinkTo>
   <br>
+</div>
+
+<!-- Valider la suppression -->
+<div class="ui modal delete">
+  <div class="header">Do you want delete {{story.description}} ?</div>
+  <div class="content">
+    <div class="description">
+      <div class="actions">
+       <div {{action 'deleteStory' story model model.stories}} class="ui green deny button">
+             Yes
+       </div>
+       <div class="ui red deny button">
+             No
+       </div>
+    </div>
+  </div>
+</div>
 </div>
 
 {{/each}}
@@ -72,23 +96,6 @@
       </div>
     </LinkTo>
 
-</div>
-</div>
-
-<!-- Valider la suppression -->
-<div class="ui modal delete">
-  <div class="header">Do you want delete {{model.toDelete.name}} ?</div>
-  <div class="content">
-    <div class="description">
-      <div class="actions">
-       <div {{action "remove" model.toDelete}} class="ui green deny button">
-             Yes
-       </div>
-       <div class="ui red deny button">
-             No
-       </div>
-    </div>
-  </div>
 </div>
 </div>
 

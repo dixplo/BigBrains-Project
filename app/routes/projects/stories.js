@@ -10,7 +10,7 @@ export default Route.extend({
   },
   actions:{
     confirmDelete(model){
-      set(model,'toDelete');
+      //set(model,'toDelete');
       $('.ui.modal.delete').modal('setting', 'closable', true).modal('show');
 },
     deleteStory(story, project, stories){
