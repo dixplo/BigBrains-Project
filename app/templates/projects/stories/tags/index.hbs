@@ -1,0 +1,24 @@
+<div class="ui message attached icon">
+    <i class="close icon" {{action 'cancel' model.id model}}></i>
+    <div class="content">
+        <div class="header">
+            Add Tag
+        </div>
+    </div>
+</div>
+<div class="ui form attached fluid segment">
+
+  {{#each model.tags as |tag|}}
+  {{tag.title}}
+  {{/each}}
+    </div>
+
+<div class="ui bottom attached message">
+    <button class="ui button inverted positive icon"><i class="check circle icon" />
+        Validate</button>
+    <button class="ui button inverted red icon" {{action 'cancel' model.id model}}><i
+            class="icon times circle outline" /> Cancel</button>
+</div>
+
+
+{{outlet}}

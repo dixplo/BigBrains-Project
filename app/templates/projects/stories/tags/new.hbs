@@ -1,8 +1,8 @@
 <div class="ui message attached icon">
-    <i class="close icon"></i>
+    <i class="close icon" {{action 'cancel' model.id model}}></i>
     <div class="content">
         <div class="header">
-            Add Tag
+            Create Tag:
         </div>
     </div>
 </div>
@@ -15,6 +15,25 @@
           <Input type="text" @value={{model.title}} placeholder="Title" />
       </div>
   </div>
+  <div class="ui labeled input field" data-children-count="1">
+      <div class="ui label">
+          Color
+      </div>
+      <select class="ui icon dropdown inverted" @value={{model.color}}>
+                  <option value="#DB2828" style="color: #DB2828">
+                      <p style="color:#DB2828">Red</p>
+                  </option>
+                  <option value="#F2711C">
+                      <p style="color:#F2711C">Orange</p>
+                  </option>
+                  <option value="#FBBD08">
+                      <p style="color:#FBBD08">Yellow</p>
+                  </option>
+                  <option value="#b5cc18">
+                      <p style="color:#b5cc18">Olive</p>
+                  </option>
+              </select>
+  </div>
     {{#if model.error}}
         <div class="ui inverted red segment">
       <p>All fields are required.</p>
@@ -24,11 +43,16 @@
 
 
 <div class="ui bottom attached message">
-    <button class="ui button inverted positive icon" {{action 'addNew' model.title model.id model}}><i class="check circle icon" />
+    <button class="ui button inverted positive icon" {{action 'addNew' model.title model.color model.id model}}><i class="check circle icon" />
         Validate</button>
-    <button class="ui button inverted red icon" ><i
+    <button class="ui button inverted red icon" {{action 'cancel' model.id model}}><i
             class="icon times circle outline" /> Cancel</button>
 </div>
 
+<script>
+$(function() {
+    $('.ui.dropdown').dropdown();
+});
+</script>
 
 {{outlet}}

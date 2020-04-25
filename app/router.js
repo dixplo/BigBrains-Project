@@ -18,6 +18,7 @@ Router.map(function() {
       this.route('new');
       this.route('edit', {path: 'edit/:story_id'});
       this.route('tags',{path: '/:story_id'} ,function(){
+        this.route('index');
         this.route('new');
       })
     });
