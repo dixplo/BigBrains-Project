@@ -19,9 +19,9 @@
       <div class="ui label">
           Color
       </div>
-      <select class="ui icon dropdown inverted" @value={{model.color}}>
-                  <option value="#DB2828" style="color: #DB2828">
-                      <p style="color:#DB2828">Red</p>
+      <select {{action 'setColor' model.color model}} class="ui icon dropdown inverted">
+                  <option value="#DB2828">
+                      {{model.color}}
                   </option>
                   <option value="#F2711C">
                       <p style="color:#F2711C">Orange</p>
