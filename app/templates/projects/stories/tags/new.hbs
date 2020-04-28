@@ -17,22 +17,21 @@
   </div>
   <div class="ui labeled input field" data-children-count="1">
       <div class="ui label">
-          Color
+          Color {{model.tag.color}}
       </div>
-      <select {{action 'setColor' model.color model}} class="ui icon dropdown inverted">
-                  <option value="#DB2828">
-                      {{model.color}}
-                  </option>
-                  <option value="#F2711C">
-                      <p style="color:#F2711C">Orange</p>
-                  </option>
-                  <option value="#FBBD08">
-                      <p style="color:#FBBD08">Yellow</p>
-                  </option>
-                  <option value="#b5cc18">
-                      <p style="color:#b5cc18">Olive</p>
-                  </option>
-              </select>
+
+      {{#ui-dropdown class="ui selection compact" onChange=(action (mut model.tag.color)) as |execute mapper|}}
+   <div class="default text">Select</div>
+      <i class="dropdown icon"></i>
+      <div class="menu">
+         {{#each model.colors as |color|}}
+            <div data-value={{map-value mapper color}} class="item" style="color:{{color.hexa}}">
+               {{color.name}}
+            </div>
+         {{/each}}
+     </div>
+{{/ui-dropdown}}
+
   </div>
     {{#if model.error}}
         <div class="ui inverted red segment">
@@ -43,7 +42,7 @@
 
 
 <div class="ui bottom attached message">
-    <button class="ui button inverted positive icon" {{action 'addNew' model.title model.color model.id model}}><i class="check circle icon" />
+    <button class="ui button inverted positive icon" {{action 'addNew' model.title model.tag.color model.id model}}><i class="check circle icon" />
         Validate</button>
     <button class="ui button inverted red icon" {{action 'cancel' model.id model}}><i
             class="icon times circle outline" /> Cancel</button>

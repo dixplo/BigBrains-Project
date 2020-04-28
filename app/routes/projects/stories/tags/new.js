@@ -1,20 +1,27 @@
 import Route from '@ember/routing/route';
 import { set,get } from '@ember/object';
+import RSVP from 'rsvp';
+import EmberObject from '@ember/object';
 
 export default Route.extend({
-  colors: [{ name: "red", hexa: "#DB2828" },
-            { name: "orange", hexa: "#F2711C" },
-            { name: "yellow", hexa: "#FBBD08" },
-            { name: "olive", hexa: "#b5cc18" },
-            { name: "green", hexa: "#24BA45" },
-            { name: "teal", hexa: "#00B5AD" },
-            { name: "blue", hexa: "#2185D0" },
-            { name: "purple", hexa: "#A333C8" },
-            { name: "pink", hexa: "#E03997" },
-            { name: "brown", hexa: "#A5673F" },
-            { name: "white", hexa: "#E5E5E5" },
-            { name: "grey", hexa: "#767676" },
-            { name: "black", hexa: "#1B1C1D" }],
+  async model(){
+    return EmberObject.create({
+      tag: {title:"vide",color:"vide"},
+      colors: [{ name: "Red", hexa: "#DB2828" },
+                { name: "Orange", hexa: "#F2711C" },
+                { name: "Yellow", hexa: "#FBBD08" },
+                { name: "Olive", hexa: "#b5cc18" },
+                { name: "Green", hexa: "#24BA45" },
+                { name: "Teal", hexa: "#00B5AD" },
+                { name: "Blue", hexa: "#2185D0" },
+                { name: "Purple", hexa: "#A333C8" },
+                { name: "Pink", hexa: "#E03997" },
+                { name: "Brown", hexa: "#A5673F" },
+                { name: "White", hexa: "#E5E5E5" },
+                { name: "Grey", hexa: "#767676" },
+                { name: "Black", hexa: "#1B1C1D" }]
+              });
+},
   actions:{
 
   setColor(color,model){
