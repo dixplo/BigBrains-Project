@@ -2,22 +2,24 @@
     <i class="close icon" {{action 'cancel' model.id model}}></i>
     <div class="content">
         <div class="header">
-            Add Tag
+            Add Tag {{model.story.id}}
         </div>
     </div>
 </div>
 <div class="ui form attached fluid segment">
-
   {{#each model.tags as |tag|}}
-  {{tag.title}}
+  <a class="ui label" style="background-color:{{tag.color}}">{{tag.title}} <i class="delete icon"></i> </a>
   {{/each}}
     </div>
 
 <div class="ui bottom attached message">
-    <button class="ui button inverted positive icon"><i class="check circle icon" />
+    <button class="ui button inverted positive icon"><i class="check circle icon"/>
         Validate</button>
-    <button class="ui button inverted red icon" {{action 'cancel' model.id model}}><i
-            class="icon times circle outline" /> Cancel</button>
+    <button class="ui button inverted red icon" {{action 'cancel' model.id model}}>
+      <i class="icon times circle outline" /> Cancel</button>
+    <LinkTo class="ui button yellow icon" @route="projects.stories.tags.new" @model={{model.story.id}} style="float:right">
+      <i class="plus circle icon" />
+    Create Tag</LinkTo>
 </div>
 
 

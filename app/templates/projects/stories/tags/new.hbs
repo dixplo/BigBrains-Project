@@ -10,14 +10,14 @@
   <div class="two fields">
       <div class="ui fluid labeled input field" data-children-count="1">
           <div class="ui label">
-              Title {{model.tag.title}}
+              Title
           </div>
           <Input type="text" @value={{model.tag.title}} placeholder="Title" />
       </div>
   </div>
   <div class="ui labeled input field" data-children-count="1">
       <div class="ui label">
-          Color {{model.tag.color}}
+          Color
       </div>
 
       {{#ui-dropdown class="ui selection compact" onChange=(action (mut model.tag.color)) as |execute mapper|}}
@@ -25,16 +25,16 @@
       <i class="dropdown icon"></i>
       <div class="menu">
          {{#each model.colors as |color|}}
-            <div data-value={{map-value mapper color}} class="item" style="color:{{color.hexa}}">
+            <div data-value={{map-value mapper color.hexa}} class="item" style="color:{{color.hexa}}">
                {{color.name}}
             </div>
          {{/each}}
      </div>
-{{/ui-dropdown}}
+      {{/ui-dropdown}}
 
   </div>
     {{#if model.error}}
-        <div class="ui inverted red segment">
+        <div class="ui invered red segment">
       <p>All fields are required.</p>
     </div>
     {{/if}}
@@ -47,11 +47,5 @@
     <button class="ui button inverted red icon" {{action 'cancel' model.id model}}><i
             class="icon times circle outline" /> Cancel</button>
 </div>
-
-<script>
-$(function() {
-    $('.ui.dropdown').dropdown();
-});
-</script>
 
 {{outlet}}
