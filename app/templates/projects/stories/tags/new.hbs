@@ -10,9 +10,9 @@
   <div class="two fields">
       <div class="ui fluid labeled input field" data-children-count="1">
           <div class="ui label">
-              Title
+              Title {{model.tag.title}}
           </div>
-          <Input type="text" @value={{model.title}} placeholder="Title" />
+          <Input type="text" @value={{model.tag.title}} placeholder="Title" />
       </div>
   </div>
   <div class="ui labeled input field" data-children-count="1">
@@ -42,7 +42,7 @@
 
 
 <div class="ui bottom attached message">
-    <button class="ui button inverted positive icon" {{action 'addNew' model.title model.tag.color model.id model}}><i class="check circle icon" />
+    <button class="ui button inverted positive icon" {{action 'addNew' model.tag.title model.tag.color model}}><i class="check circle icon" />
         Validate</button>
     <button class="ui button inverted red icon" {{action 'cancel' model.id model}}><i
             class="icon times circle outline" /> Cancel</button>

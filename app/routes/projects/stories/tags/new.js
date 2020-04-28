@@ -23,11 +23,7 @@ export default Route.extend({
               });
 },
   actions:{
-
-  setColor(color,model){
-      set('model','color',color);
-    },
-  addNew(title,color,id,story){
+  addNew(title,color,story){
    let error = !title
    if(error){
      set(story,'error',error);
