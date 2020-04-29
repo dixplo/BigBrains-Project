@@ -19,22 +19,6 @@
       <div class="ui label">
           Color
       </div>
-<<<<<<< HEAD
-      <select {{action 'setColor' model.color model}} class="ui icon dropdown inverted">
-                  <option value="#DB2828">
-                      {{model.color}}
-                  </option>
-                  <option value="#F2711C">
-                      <p style="color:#F2711C">Orange</p>
-                  </option>
-                  <option value="#FBBD08">
-                      <p style="color:#FBBD08">Yellow</p>
-                  </option>
-                  <option value="#b5cc18">
-                      <p style="color:#b5cc18">Olivee</p>
-                  </option>
-              </select>
-=======
 
       {{#ui-dropdown class="ui selection compact" onChange=(action (mut model.tag.color)) as |execute mapper|}}
    <div class="default text">Select</div>
@@ -48,7 +32,6 @@
      </div>
       {{/ui-dropdown}}
 
->>>>>>> master
   </div>
     {{#if model.error}}
         <div class="ui invered red segment">
