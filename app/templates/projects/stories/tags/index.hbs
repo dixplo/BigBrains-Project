@@ -3,7 +3,7 @@
     <div class="content">
         <div class="header">
             Add Tag to {{model.story.description}}
-            {{model.story.tags }}
+
         </div>
     </div>
 </div>
@@ -24,9 +24,8 @@
 <div class="ui bottom attached message">
     <button class="ui button inverted positive icon" {{action 'cancel' model.story.id model}}>
       <i class="check circle icon"/>Validate</button>
-    <button class="ui button inverted red icon" {{action 'cancel' model.story.id model}}>
-      <i class="icon times circle outline" /> Cancel</button>
-    <LinkTo class="ui button yellow icon" @route="projects.stories.tags.new" @model={{model.story.id}} style="float:right">
+
+    <LinkTo class="ui small button yellow icon" @route="projects.stories.tags.new" @model={{model.story.id}}>
       <i class="plus circle icon" />Create Tag</LinkTo>
 </div>
 

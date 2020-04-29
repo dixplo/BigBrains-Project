@@ -7,5 +7,6 @@ export default Model.extend({
   startDate: DS.attr('string'),
   dueDate: DS.attr('string'),
   developer: DS.attr(),
-  stories:DS.hasMany('story')
+  stories:DS.hasMany('story'),
+  owner:DS.belongsTo('developer')
 });

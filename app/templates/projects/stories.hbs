@@ -39,11 +39,11 @@
 {{#each model.stories as |story|}}
 <div class="ui green segment">
 
-  <div class="ui massive green label">
+  <div class="ui big green label">
     {{story.description}}
   </div>
   {{#each story.tags as |tag|}}
-  <div class="ui icon buttons">
+  <div class="ui mini icon buttons">
     <button class="ui button" style="background-color:{{tag.color}};color:white">
       {{tag.title}}
     </button>
