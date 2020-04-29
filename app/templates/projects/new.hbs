@@ -41,6 +41,24 @@
             <Input @value={{model.dueDate}} type="date" name="dateE" placeholder="Y-M-D" class="ui input"/>
         </div>
     </div>
+    <div class="ui labeled input field" data-children-count="1">
+        <div class="ui label">
+            Owner
+        </div>
+
+        {{#ui-dropdown class="ui selection compact" onChange=(action (mut model.developer)) as |execute mapper|}}
+     <div class="default text">Select developer</div>
+        <i class="dropdown icon"></i>
+        <div class="menu">
+           {{#each model.developers as |dev|}}
+              <div data-value={{map-value mapper dev}} class="item">
+                 {{dev.name}} {{dev.fname}}
+              </div>
+           {{/each}}
+       </div>
+        {{/ui-dropdown}}
+
+    </div>
     {{#if model.error}}
         <div class="ui inverted red segment">
       <p>All fields are required.</p>
@@ -50,7 +68,7 @@
 
 
 <div class="ui bottom attached message">
-    <button class="ui button inverted positive icon" {{action 'addNew' model}}><i class="check circle icon" />
+    <button class="ui button inverted positive icon" {{action 'addNew' model model.developer}}><i class="check circle icon" />
         Validate</button>
     <button class="ui button inverted red icon" {{action 'backToProj' model}}><i
             class="icon times circle outline" /> Cancel</button>

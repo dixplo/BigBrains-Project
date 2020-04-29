@@ -1,12 +1,15 @@
 import Route from '@ember/routing/route';
 import { set } from '@ember/object';
 import RSVP from 'rsvp';
+import EmberObject from '@ember/object';
 
 
 export default Route.extend({
-  model() {
+  async model() {
+    EmberObject.create(this.store.findAll('project', { reload: true }));
     return RSVP.hash({
-      projects: this.store.findAll('project'),
+
+      projects: this.store.findAll('project', { reload: true }),
       developers: this.store.findAll('developer')
     });
 

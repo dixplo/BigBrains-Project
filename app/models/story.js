@@ -5,5 +5,6 @@ export default Model.extend({
   code:DS.attr('string'), // propriet� persistente
   description:DS.attr('string'), // propriet� persistente
   project:DS.belongsTo('project',{inverse:'stories'}),
-  tags:DS.hasMany('tag')
+  tags:DS.hasMany('tag'),
+  step:DS.belongsTo('step')
 });

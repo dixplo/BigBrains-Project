@@ -29,7 +29,7 @@
 
    <tr>
      <td>Owner</td>
-     <td>{{project.owner}}</td>
+     <td>{{project.owner.name}} {{project.owner.fname}}</td>
    </tr>
 
    <tr>
@@ -49,7 +49,7 @@
          </div>
        </LinkTo>
 
-          
+
 
           <LinkTo class="ui vertical animated green button" @route="projects.stories" @model={{project.id}}>
             <div class="hidden content">Board</div>

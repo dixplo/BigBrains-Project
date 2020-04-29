@@ -1,6 +1,7 @@
 import Route from '@ember/routing/route';
 import RSVP from 'rsvp';
 import { get,set } from '@ember/object';
+import EmberObject from '@ember/object';
 
 export default Route.extend({
   async model(params){
@@ -11,10 +12,12 @@ export default Route.extend({
       descriptif: get(proj, "descriptif"),
       startDate: get(proj, "startDate"),
       dueDate: get(proj, "dueDate"),
+      developers: this.get('store').findAll('developer'),
+      dev: EmberObject.create()
     })
 },
   actions:{
-    edit(model){
+    edit(model,owner){
       let error = !model.name || !model.descriptif || !model.startDate || !model.dueDate;
       if(error){
         set(model,'error',error);
@@ -25,6 +28,7 @@ export default Route.extend({
         proj.set("descriptif",model.descriptif);
         proj.set("startDate",model.startDate);
         proj.set("dueDate",model.dueDate);
+        proj.set("owner",owner);
         proj.save();
         this.transitionTo("/projects");
       }},
