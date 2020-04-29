@@ -17,9 +17,9 @@ Router.map(function() {
     this.route('stories', {path: 'project/stories/:project_id'}, function() {
       this.route('new');
       this.route('edit', {path: 'edit/:story_id'});
-      this.route('tags',{path: '/:story_id'} ,function(){
-        this.route('index',{path: '/:story_id'});
-        this.route('new',{path: '/:story_id'});
+      this.route('tags',{path: 'tags/:story_id'} ,function(){
+        this.route('index',{path: 'index/:story_id'});
+        this.route('new',{path: 'new/:story_id'});
       });
     });
   });

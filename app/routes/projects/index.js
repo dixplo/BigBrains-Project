@@ -4,9 +4,9 @@ import RSVP from 'rsvp';
 
 
 export default Route.extend({
-  model() {
+  async model() {
     return RSVP.hash({
-      projects: this.store.findAll('project'),
+      projects: this.store.findAll('project', { reload: true }),
       developers: this.store.findAll('developer')
     });
 

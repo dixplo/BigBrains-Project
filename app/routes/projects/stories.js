@@ -20,6 +20,10 @@ export default Route.extend({
         //Suppression de la story
         story.deleteRecord();
         story.save();
+    },
+    deleteTagFromStory(tag,tags,story){
+      tags.removeObject(tag);
+      story.save();
     }
   }
 });

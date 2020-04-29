@@ -1,5 +1,6 @@
 import Route from '@ember/routing/route';
 import { set,get } from '@ember/object';
+import Store from '@ember-data/store';
 
 export default Route.extend({
   actions:{
@@ -10,17 +11,15 @@ export default Route.extend({
        set(project,'error',error);
      }
      else{
-
-     let story = this.get('store').createRecord('story',{code:code,description:description});
+     let step = this.get('store').findRecord('step',1);
+     let story = this.get('store').createRecord('story',{code:code,description:description,step:step});
      set(story,'project',project);
-     story.save().then(()=>{project.save();
-   });
-   //Set des valeurs de l'input à RIEN pour avoir le form vide
-   set(project,'code','');
-   set(project,'description','');
-     this.transitionTo('projects.stories',id);
-
-   }},
+     story.save().then(()=>{project.save();});
+      //Set des valeurs de l'input à RIEN pour avoir le form vide
+      set(project,'code','');
+      set(project,'description','');
+      this.transitionTo('projects.stories',id);
+         }},
    cancel(id, model) {
      this.transitionTo('projects.stories',id);
      set(model,'error','');

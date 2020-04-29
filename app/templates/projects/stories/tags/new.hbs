@@ -1,5 +1,5 @@
 <div class="ui message attached icon">
-    <i class="close icon" {{action 'cancel' model.id model}}></i>
+    <i class="close icon" {{action 'cancel' model.story.id model}}></i>
     <div class="content">
         <div class="header">
             Create Tag:
@@ -42,9 +42,9 @@
 
 
 <div class="ui bottom attached message">
-    <button class="ui button inverted positive icon" {{action 'addNew' model.tag.title model.tag.color model}}><i class="check circle icon" />
+    <button class="ui button inverted positive icon" {{action 'addNew' model.tag.title model.tag.color model model.story.id}}><i class="check circle icon" />
         Validate</button>
-    <button class="ui button inverted red icon" {{action 'cancel' model.id model}}><i
+    <button class="ui button inverted red icon" {{action 'cancel' model.story.id model}}><i
             class="icon times circle outline" /> Cancel</button>
 </div>
 

@@ -4,8 +4,13 @@ import RSVP from 'rsvp';
 import EmberObject from '@ember/object';
 
 export default Route.extend({
-  async model(){
+  async model(param){
+      let story = this.get('store').findRecord('story',param.story_id);
       return EmberObject.create({
+        story: story,
+        code: get(story, "code"),
+        description: get(story, "description"),
+        id: get(story,"project"),
         tag: {title:"",color:""},
         colors: [{ name: "Red", hexa: "#DB2828" },
                   { name: "Orange", hexa: "#F2711C" },
@@ -23,7 +28,7 @@ export default Route.extend({
                 });
   },
   actions:{
-  addNew(title,color,story){
+  addNew(title,color,story,id){
    let error = !title
    if(error){
      set(story,'error',error);
@@ -36,11 +41,11 @@ export default Route.extend({
    set(story,'title','');
    set(story,'tag.color','');
    set(story,'error','');
-   this.transitionTo('projects.stories.new');
+   this.transitionTo('projects.stories.tags',id);
        }
  },
  cancel(id, model) {
-   this.transitionTo('projects.stories');
+   this.transitionTo('projects.stories.tags',id);
    set(model,'error','');
  }
 }
