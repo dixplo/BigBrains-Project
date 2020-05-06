@@ -4,7 +4,30 @@
 {{#if this.model.projects}}
 
 {{#each this.model.projects as |project|}}
-{{project.name}}
+
+<div class="ui green segment" id="devSegment">
+  <div class="ui divided relaxed horizontal list">
+    <div class="item">
+      <div class="content">
+        <div class="header">Name</div>
+        {{project.name}}
+        </div>
+    </div>
+    <div class="item">
+      <div class="content">
+        <div class="header">Owner</div>
+        {{project.owner.name}} {{project.owner.fname}}
+        </div>
+    </div>
+</div>
+
+<LinkTo class="ui vertical animated green button" @route="projects.stories" @model={{project.id}} style="float: right">
+  <div class="hidden content">More</div>
+  <div class="visible content">
+  <i class="eye icon"></i>
+  </div>
+</LinkTo>
+</div>
 {{/each}}
 {{else}}
 <div class="ui warning message">

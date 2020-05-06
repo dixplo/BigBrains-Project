@@ -35,7 +35,7 @@
 
 <div class="ui segment">
 <h3>Project Stories:</h3>
-
+{{#if model.stories}}
 {{#each model.stories as |story|}}
 <div class="ui green segment">
 
@@ -94,11 +94,15 @@
 </div>
 
 {{/each}}
-
-
-
 <div class="ui divider"/>
-<div class="ui grey inverted segment" style="text-align: center;">
+{{else}}
+<div class="ui warning message">
+  <div class="header">You don't have stories in this project.</div>
+<br>
+Click on <LinkTo href="/developers" @route="projects.stories.new" @model={{model.id}}>Add Stories</LinkTo> to add a new story.</div>
+{{/if}}
+
+<div class="ui segment" style="text-align: center;">
   <LinkTo class="ui animated fade green button" tabindex="0" @route="projects.stories.new" @model={{model.id}}>
       <div class="visible content">Add Story</div>
       <div class="hidden content">
