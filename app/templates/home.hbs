@@ -1,7 +1,18 @@
 <div class="ui segment">
 <h2>Current projects :</h2>
 
+{{#if this.model.projects}}
 
+{{#each this.model.projects as |project|}}
+{{project.name}}
+{{/each}}
+{{else}}
+<div class="ui warning message">
+  <div class="header">You don't have projects in progress.</div>
+<br>
+Click on <a href="/developers">Developers</a> or <a href="/projects">Projects</a> to add data</div>
+
+{{/if}}
 </div>
 
 

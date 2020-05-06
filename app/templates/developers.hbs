@@ -2,7 +2,7 @@
 
 <div class="ui segment">
   <h3>Developers List</h3>
-
+{{#if model.developers}}
   {{#each model.developers as |developer|}}
     <div class="ui green segment" id="devSegment">
         {{developer.identity}}
@@ -27,25 +27,15 @@
     </div>
 
     {{/each}}
-    
-    <!-- Valider la suppression -->
-    <div class="ui modal delete">
-      <div class="header">Do you want delete {{model.toDelete.name}} ?</div>
-      <div class="content">
-        <div class="description">
-          <div class="actions">
-           <div {{action "remove" model.toDelete}} class="ui green deny button">
-                 Yes
-           </div>
-           <div class="ui red deny button">
-                 No
-           </div>
-        </div>
-      </div>
-    </div>
-    </div>
+    <div class="ui divider"/>
+{{else}}
+<div class="ui warning message">
+  <div class="header">You don't have any developers.</div>
+<br>
+Click on <a href="/developers/new">Add Developper</a> to add a new developper.</div>
 
-<div class="ui divider"/>
+{{/if}}
+
 <div class="ui segment" style="text-align: center;">
   <div {{action "transitionAdd"}} class="ui animated fade green button" tabindex="0">
       <div class="visible content">Add Developper</div>
@@ -54,6 +44,23 @@
       </div>
     </div>
 
+</div>
+
+<!-- Valider la suppression -->
+<div class="ui modal delete">
+  <div class="header">Do you want delete {{model.toDelete.name}} ?</div>
+  <div class="content">
+    <div class="description">
+      <div class="actions">
+       <div {{action "remove" model.toDelete}} class="ui green deny button">
+             Yes
+       </div>
+       <div class="ui red deny button">
+             No
+       </div>
+    </div>
+  </div>
+</div>
 </div>
 
 

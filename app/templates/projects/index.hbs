@@ -2,7 +2,7 @@
 
 <div class="ui segment">
   <h3>Projects List</h3>
-
+{{#if this.model.projects}}
 <div class="ui segment">
 {{#each this.model.projects as |project|}}
 
@@ -64,7 +64,15 @@
 
    {{/each}}
 </div>
+
 <div class="ui divider"/>
+{{else}}
+<div class="ui warning message">
+  <div class="header">You don't have projects.</div>
+<br>
+Click on <a href="/projects/new">Add Project</a> to add a new project</div>
+{{/if}}
+
 <div class="ui segment" style="text-align: center;">
   <LinkTo class="ui animated fade green button" tabindex="0" @route="projects.new">
       <div class="visible content">Add Project</div>

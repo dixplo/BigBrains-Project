@@ -8,6 +8,12 @@
     </div>
 </div>
 <div class="ui form attached fluid segment">
+  {{#if model.tags}}
+  {{else}}
+  <div class="ui yellow message">
+  Click on "Create Tag" to add new tag
+  </div>
+  {{/if}}
   {{#each model.tags as |tag|}}
   <div class="ui icon buttons">
     <button class="ui button" {{action "addTagToStory" tag model.story}} style="background-color:{{tag.color}};color:white">
@@ -28,6 +34,7 @@
     <LinkTo class="ui small button yellow icon" @route="projects.stories.tags.new" @model={{model.story.id}}>
       <i class="plus circle icon" />Create Tag</LinkTo>
 </div>
+
 
 
 {{outlet}}
