@@ -11,8 +11,7 @@ export default Route.extend({
        set(project,'error',error);
      }
      else{
-     let step = this.get('store').findRecord('step',1);
-     let story = this.get('store').createRecord('story',{code:code,description:description,step:step});
+     let story = this.get('store').createRecord('story',{code:code,description:description});
      set(story,'project',project);
      story.save().then(()=>{project.save();});
       //Set des valeurs de l'input à RIEN pour avoir le form vide
